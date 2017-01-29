@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <br />
+        <div class="col-md-offset-4 col-md-8">
+          <h4> Updates: <%= @page.title %> </h4>
+          <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <% @page.blogs.reverse.each do |blog|%>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= blog.title %>
+              <small>
+                    <%=time_ago_in_words(blog.created_at)%> ago
+              </small></h3>
+            </div>
+            <div class="panel-body">
+              <%= blog.body %>
+               <br />
+                <% if blog.photo? %>
+                  <img src="<%= blog.photo %>" width="200">
+                <% else %>
+                <% end %>
+
+              <% if current_user.present? %>
+
+                  <div class="btn-group btn-group-xs btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group-xs" role="group">
+                      <a href="/blogs/<%= blog.id %>/edit" class="btn btn-warning">Edit</a>
+                      <a href="/delete_blog/<%= blog.id %>" class="btn btn-danger" rel="nofollow">
+                      Delete
+                      </a>
+                    </div>
+                  </div>
+
+              <% else %>
+
+              <% end %>
+
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </div>
+</div>

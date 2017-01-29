@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @page.errors.any? %>
+  <% @page.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form enctype="multipart/form-data" action="/update_page/<%= @page.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="<%= @page.title %>" class="form-control" value="<%= @page.title %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="<%= @page.description %>" class="form-control" rows="3"> <%=@page.description%></textarea>
+      </div>
+
+      <!-- Label and input for firstimage -->
+      <div class="form-group">
+        <label for="firstimage" class="control-label">
+          Modify Photos
+        </label>
+
+        <input type="file" id="firstimage" name="firstimage" placeholder="<%= @page.firstimage %>" class="form-control" value="<%= @page.firstimage %>">
+      Previous: <%= @page.firstimage.to_s.split('/').last  %>
+      </div>
+
+      <!-- Label and input for secondimage -->
+      <div class="form-group">
+
+        <input type="file" id="secondimage" name="secondimage" placeholder="<%= @page.secondimage %>" class="form-control" value="<%= @page.secondimage %>">
+      Previous: <%= @page.secondimage.to_s.split('/').last %>
+      </div>
+
+      <!-- Label and input for thirdimage -->
+      <div class="form-group">
+
+        <input type="file" id="thirdimage" name="thirdimage" placeholder="<%= @page.thirdimage %>" class="form-control" value="<%= @page.thirdimage %>">
+      Previous: <%= @page.thirdimage.to_s.split('/').last %>
+      </div>
+
+      <!-- Label and input for fourthimage -->
+      <div class="form-group">
+
+        <input type="file" id="fourthimage" name="fourthimage" placeholder="<%= @page.fourthimage %>" class="form-control" value="<%= @page.fourthimage %>">
+      Previous: <%= @page.fourthimage.to_s.split('/').last %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update page
+      </button>
+      or
+      <a href="/pages/<%= @page.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

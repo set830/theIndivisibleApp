@@ -1,0 +1,58 @@
+<!-- Validation failure messages -->
+<% if @blog.errors.any? %>
+  <% @blog.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form enctype="multipart/form-data" action="/create_blog" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+      <label for="title" class="control-label">
+          Title
+        </label>
+        <input type="text" id="title" name="title" placeholder="" class="form-control" value="<%= @blog.title %>">
+      </div>
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="photo" class="control-label">
+          Upload a Photo (Optional)
+        </label>
+
+        <input type="file" id="photo" name="photo" placeholder="Upload a Photo (Optional)" class="form-control" value="<%= @blog.photo %>">
+      </div>
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Description (Optional)
+        </label>
+        <textarea id="body" name="body" placeholder="" class="form-control" rows="3"><%= @blog.body %></textarea>
+      </div>
+
+      <!-- Label and input for page_id -->
+      <div class="form-group">
+        <input type="hidden" id="page_id" name="page_id" placeholder="Page" class="form-control" value="<%= @page.id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Add Update
+      </button>
+      or
+      <a href="/pages/<%= @blog.page_id %>">Cancel</a>
+    </form>
+  </div>
+</div>

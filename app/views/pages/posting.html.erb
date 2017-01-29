@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <br />
+        <div class="col-md-offset-4 col-md-8">
+          <h4> Thoughts: <%= @page.title %> </h4>
+          <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <% @page.postings.reverse[0..4].each do |comment|%>
+                <div class="panel panel-default">
+                  <% if comment.body? %>
+                    <div class="panel-body">
+                      <b><%= comment.name %></b>
+                      <small>
+                         <%=time_ago_in_words(comment.created_at)%> ago
+                      </small> <br />
+                          <%= comment.body %> <br />
+                      <% if current_user == @page.user %>
+                        <div class="btn-group btn-group-xs">
+                          <a href="/delete_posting/<%= comment.id %>" class="btn btn-danger" rel="nofollow">
+                          Delete
+                          </a>
+                        </div>
+                      <% else %>
+                      <% end %>
+                    </div>
+                  <% else %>
+                  <% end %>
+                </div>
+              <% end %>
+        </div>
+    </div>
+</div>
