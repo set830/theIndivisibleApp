@@ -1,0 +1,152 @@
+  /* navbar */
+  .navbar-default {
+    background-color: rgba(0, 0, 0, .4);
+    border-color: rgba(0, 0, 0, .4);
+
+    margin-bottom: 0;
+
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 7%;
+    padding: 0px;
+  }
+
+/* Only necessary if you are using navbar-fixed-top */
+  body {
+      padding-top: 60px;
+    }
+
+  html, body {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    margin-top: -30px; /* removes navbar space */
+  }
+
+  .delay1sec {
+    -webkit-animation-delay: .5s;
+    -moz-animation-delay: .5s;
+    -ms-animation-delay: .5s;
+    -o-animation-delay: .5s;
+    animation-delay: .5s;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Lato', serif;
+  }
+
+  .white {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .whiteC {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .black {
+    color: rgba(51, 51, 51, 1);
+  }
+
+  .lightgray {
+    background-color: rgba(247, 247, 247, 1);
+  }
+
+  .backgroundblue {
+    background-color: rgba(33, 125, 187, 1);
+  }
+
+  .panel-transparent {
+      background:rgba(0,0,0,0.6);
+  }
+
+  .blue {
+    color: rgba(33, 125, 187, 1);
+  }
+
+  .darkgray {
+    color: rgba(150, 150, 150, 1);
+  }
+
+  .darkergray{
+    color: rgba(112, 112, 114, 1);
+  }
+
+  .green {
+    color: rgba(20, 159, 132, 1);
+  }
+
+  .backgroundGreen {
+    background-color: rgba(20, 159, 132, 1);
+  }
+
+  .textshadow {
+    text-shadow: 1px 1px 1px #040000;
+  }
+
+  .centeralign {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .leftalign {
+    text-align: left;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+  .widthRestraint {
+    max-width: 490px;
+  }
+
+  .big {
+    line-height: 150%;
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .greenline {
+    color: rgba(20, 159, 132, 1);
+    background-color: rgba(20, 159, 132, 1);
+    border-color: rgba(20, 159, 132, 1);
+  }
+
+  .jumbotron {
+    background-size: cover;
+  }
+
+  #footerJumbotron {
+    margin-bottom: -30px;
+    margin-top: -30px;
+  }
+
+  #footerHR{
+    display: block;
+    height: 3px;
+    border: 0;
+    border-top: 2px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  a:hover {
+    color: #217dbb;
+  }
